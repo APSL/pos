@@ -6,7 +6,7 @@
     "name": "Point of Sale - Display All Discounts",
     "summary": "Display discount amount on PoS cashier screen and print it on ticket"
     "calculated from the difference between a sale with default pricelist",
-    "version": "16.0.1.0.1",
+    "version": "17.0.1.0.0",
     "category": "Point of Sale",
     "maintainers": ["legalsylvain"],
     "author": "GRAP,Odoo Community Association (OCA)",
@@ -17,12 +17,12 @@
         "views/view_product_template.xml",
     ],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_discount_all/static/src/js/models.js",
-            "pos_discount_all/static/src/xml/OrderSummary.xml",
+        "point_of_sale._assets_pos": [
+            "pos_discount_all/static/src/js/models.esm.js",
+            "pos_discount_all/static/src/js/order_widget.esm.js",
         ],
-        "web.assets_tests": [
-            "pos_discount_all/tests/tours/PosDiscountAllTour.tour.js",
+        "web.assets_backend": [
+            "pos_discount_all/static/src/tests/tours/PosDiscountAllTour.tour.js",
         ],
     },
     "demo": [

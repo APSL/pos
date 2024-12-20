@@ -1,15 +1,11 @@
-/*
-    Copyright (C) 2022-Today GRAP (http://www.grap.coop)
-    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
-    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-*/
-/* eslint-disable no-empty-function */
-odoo.define("pos_discount_all.tour.PosDiscountAllTour", function (require) {
-    "use strict";
+/** @odoo-module */
 
-    const Tour = require("web_tour.tour");
+import {registry} from "@web/core/registry";
 
-    var steps = [
+registry.category("web_tour.tours").add("PosDiscountAllTour", {
+    test: true,
+    url: "/pos/ui",
+    steps: () => [
         {
             content: "Test pos_discount_all: Waiting for loading to finish",
             trigger: "body:not(:has(.loader))",
@@ -18,11 +14,6 @@ odoo.define("pos_discount_all.tour.PosDiscountAllTour", function (require) {
         {
             content: "Test pos_discount_all: Close Opening cashbox popup",
             trigger: "div.opening-cash-control .button:contains('Open session')",
-        },
-        {
-            content: "Test pos_discount_all: Leave category displayed by default",
-            trigger: ".breadcrumb-home",
-            run: () => {},
         },
         {
             content: "Test pos_discount_all: Order a 'Discount Product' (price -1.0)",
@@ -70,9 +61,5 @@ odoo.define("pos_discount_all.tour.PosDiscountAllTour", function (require) {
             trigger: ".header-button",
             run: () => {},
         },
-    ];
-
-    Tour.register("PosDiscountAllTour", {test: true, url: "/pos/ui"}, steps);
+    ],
 });
-
-/* */
